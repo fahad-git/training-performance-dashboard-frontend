@@ -7,10 +7,9 @@ import { SkillsComparisonChart } from './SkillsComparisonChart';
 import { PassRateChart } from './PassRateChart';
 import { LoadingSpinner } from './LoadingSpinner';
 import { ErrorBoundary } from './ErrorBoundary';
-import { DateRangePresetType, FilterOptions } from '../types/training';
+import { FilterOptions } from '../types/training';
 import { 
   processServerPerformanceTrends,
-  getServerDateRange,
   processServerPassRateData
 } from '../utils/dataProcessing';
 import { useEnhancedQuery } from '../hooks/useApi';
@@ -22,14 +21,14 @@ interface DashboardProps {
 }
 
 export const Dashboard = ({ isLoading }: DashboardProps) => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   
-  // Initialize filters from URL params
-  const getInitialFilters = useCallback((): FilterOptions => {
+  // Derive filters directly from URL params on every render to ensure immediate updates
+  const filters: FilterOptions = useMemo(() => {
     const urlDepartment = searchParams.get('department');
     const urlStartDate = searchParams.get('startDate');
     const urlEndDate = searchParams.get('endDate');
-    console.log("getInitialFilters");
+    
     return {
       dateRange: {
         start: urlStartDate || '',
@@ -39,7 +38,6 @@ export const Dashboard = ({ isLoading }: DashboardProps) => {
     };
   }, [searchParams]);
 
-  const [filters, setFilters] = useState<FilterOptions>(getInitialFilters);
   const [error, setError] = useState<string | null>(null);
   const [departments, setDepartments] = useState<string[]>(['All']);
   const [loadingAnimation, setLoadingAnimation] = useState<boolean>(true);
@@ -51,17 +49,12 @@ export const Dashboard = ({ isLoading }: DashboardProps) => {
     }, 3000);
   }, []);
 
-  // Update filters when URL params change (e.g., browser back/forward)
-  useEffect(() => {
-    const newFilters = getInitialFilters();
-    setFilters(newFilters);
-  }, [getInitialFilters]);
-
   // Fetch server training data with enhancedQuery
   const {
     data: serverData,
     error: serverError,
     isLoading: serverLoading,
+    isFetching: serverFetching,
     refetch: refetchServerData,
   } = useEnhancedQuery({
     queryKey: ['serverTrainingData', filters],
@@ -71,6 +64,8 @@ export const Dashboard = ({ isLoading }: DashboardProps) => {
       endDate: filters.dateRange.end || undefined,
     }),
     enabled: !isLoading, // only fetch when not loading
+    staleTime: 0, // Always consider data stale to ensure fresh fetches
+    gcTime: 5 * 60 * 1000, // Cache for 5 minutes
     onSuccess: () => {
       // we can set server data in the redux store or context API here if we have larger app
       setError(null);
@@ -107,15 +102,6 @@ export const Dashboard = ({ isLoading }: DashboardProps) => {
   }, [serverData, filters]);
 
   // Event handlers
-  const handleDateRangePreset = useCallback((preset: DateRangePresetType) => {
-    if (!serverData) return;
-    const newRange = getServerDateRange(preset);
-    setFilters(prev => ({
-      ...prev,
-      dateRange: newRange
-    }));
-  }, [serverData]);
-
   const handleRetry = useCallback(() => {
     setError(null);
     refetchServerData();
@@ -174,8 +160,7 @@ export const Dashboard = ({ isLoading }: DashboardProps) => {
           <FilterControls
             filters={filters}
             departments={departments}
-            onFiltersChange={setFilters}
-            onDateRangePreset={handleDateRangePreset}
+            onFiltersChange={() => {}} // No longer needed since we derive from URL
           />
 
           {/* Stats Cards */}
