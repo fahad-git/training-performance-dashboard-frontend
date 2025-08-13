@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Remove focus outlines from chart elements */
+.recharts-wrapper:focus,
+.recharts-wrapper *:focus,
+.recharts-tooltip-wrapper:focus,
+.recharts-legend-wrapper:focus {
+  outline: none !important;
+}
+
+/* Remove focus outlines from chart containers */
+[class*="Chart"]:focus,
+[class*="chart"]:focus {
+  outline: none !important;
+}
+
+/* Ensure no focus outlines on chart interactions */
+.recharts-dot:focus,
+.recharts-bar:focus,
+.recharts-line:focus,
+.recharts-radar:focus {
+  outline: none !important;
+}
