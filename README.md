@@ -63,7 +63,7 @@ training-performance-dashboard-frontend/
 - **Build Tool**: Vite for fast development and optimized builds
 - **Styling**: Tailwind CSS with custom design system
 - **State Management**: React hooks with custom API hooks
-- **Charts**: Chart.js with React-Chartjs-2
+- **Charts**: ReChart
 - **Icons**: Lucide React for consistent iconography
 
 ### Dependencies
