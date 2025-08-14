@@ -7,6 +7,7 @@ import { SkillsComparisonChart } from './SkillsComparisonChart';
 import { PassRateChart } from './PassRateChart';
 import { LoadingSpinner } from './LoadingSpinner';
 import { ErrorBoundary } from './ErrorBoundary';
+import { NaturalLanguageInsights } from './NaturalLanguageInsights';
 import { FilterOptions } from '../types/training';
 import { 
   processServerPerformanceTrends,
@@ -239,6 +240,9 @@ export const Dashboard = ({ isLoading }: DashboardProps) => {
               ))}
             </div>
           </section>
+
+          {/* Natural Language Insights */}
+          <NaturalLanguageInsights filters={filters} />
         </div>
       </main>
     </div>
