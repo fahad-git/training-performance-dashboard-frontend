@@ -1,297 +1,342 @@
-# Training Performance Dashboard
+# Training Performance Dashboard Frontend
 
-A modern, responsive web application for monitoring and analyzing gamified training simulation results. Built with React, TypeScript, and Tailwind CSS, this dashboard provides real-time insights into training performance across different departments and skills.
+## Overview
+**Training Performance Dashboard Frontend** is a modern, responsive React application that provides an intuitive and beautiful interface for analyzing employee training performance data. Built with TypeScript, Vite, and Tailwind CSS, this application transforms complex training analytics into actionable insights through interactive charts, real-time filtering, and AI-powered natural language analysis.
 
-## 🚀 Features
+The dashboard offers a comprehensive view of training effectiveness, helping organizations understand skill development, identify performance trends, and make data-driven decisions about training programs. With its professional design, responsive layout, and seamless user experience, it provides a production-ready solution for training performance visualization and analysis.
 
-- **Real-time Performance Monitoring**: Track training session performance with live data updates
-- **Interactive Charts & Visualizations**: Beautiful charts using Recharts library for data representation
-- **Advanced Filtering**: Filter data by department, date ranges, and custom presets
-- **Responsive Design**: Mobile-first approach with Tailwind CSS for consistent UI/UX
-- **Error Handling**: Robust error boundaries and user-friendly error messages
-- **Loading States**: Attractive loading animations with context-aware messages
-- **URL State Management**: Browser back/forward support with URL parameter synchronization
+## Key Features
+- **📊 Interactive Performance Charts**: Real-time performance trends, skills comparison, and pass rate visualization
+- **🔍 Advanced Filtering System**: Smart date range presets and custom filtering with URL synchronization
+- **🏢 Department Analytics**: Detailed breakdown of performance by department with skill-specific metrics
+- **🤖 AI-Powered Insights**: Natural language analysis of training performance data
+- **📱 Responsive Design**: Optimized for all devices with mobile-first approach
+- **🎨 Professional UI/UX**: Modern, enterprise-ready design with smooth animations
+- **🔗 URL State Management**: Shareable links with filter state preservation
+- **⚡ Performance Optimized**: Efficient data processing and rendering
+- **🧪 Type Safety**: Full TypeScript implementation for robust development
 
-## 🛠️ Tech Stack
-
-- **Frontend Framework**: React 18 with TypeScript
-- **Build Tool**: Vite for fast development and optimized builds
-- **Styling**: Tailwind CSS for utility-first styling
-- **Charts**: Recharts for data visualization
-- **HTTP Client**: Axios with custom interceptors
-- **State Management**: React hooks (useState, useEffect, useMemo, useCallback)
-- **Routing**: React Router for navigation
-- **Date Handling**: date-fns for date manipulation
-- **Icons**: Lucide React for consistent iconography
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 training-performance-dashboard-frontend/
 ├── src/
-│   ├── api/                 # API layer and HTTP client setup
-│   │   └── insightsApi.ts   # Training data API endpoints
-│   ├── components/          # Reusable UI components
+│   ├── api/                 # API integration layer
+│   │   └── insightsApi.ts   # Training insights API client
+│   ├── components/          # React components
 │   │   ├── Dashboard.tsx    # Main dashboard component
-│   │   ├── FilterControls.tsx # Date and department filters
-│   │   ├── StatsCards.tsx   # Performance statistics cards
-│   │   ├── Charts/          # Chart components
-│   │   ├── LoadingSpinner.tsx # Generic loading component
-│   │   └── ErrorBoundary.tsx # Generic error handling
-│   ├── config/              # Configuration files
+│   │   ├── FilterControls.tsx # Advanced filtering system
+│   │   ├── StatsCards.tsx   # Performance metrics cards
+│   │   ├── PerformanceTrendChart.tsx # Trend visualization
+│   │   ├── SkillsComparisonChart.tsx # Skills analysis chart
+│   │   ├── PassRateChart.tsx # Pass rate visualization
+│   │   ├── NaturalLanguageInsights.tsx # AI insights component
+│   │   ├── LoadingSpinner.tsx # Loading states
+│   │   ├── ErrorBoundary.tsx # Error handling
+│   │   ├── Navbar.tsx       # Navigation component
+│   │   └── Footer.tsx       # Footer component
+│   ├── config/              # Configuration
 │   │   └── environment.ts   # Environment variables
 │   ├── hooks/               # Custom React hooks
-│   │   └── useApi.ts        # Enhanced query hook
+│   │   └── useApi.ts        # Enhanced API query hook
 │   ├── types/               # TypeScript type definitions
 │   │   └── training.ts      # Training data interfaces
 │   ├── utils/               # Utility functions
-│   │   ├── apiUtils.ts      # API error handling
+│   │   ├── apiUtils.ts      # API utility functions
 │   │   └── dataProcessing.ts # Data transformation utilities
-│   └── main.tsx            # Application entry point
+│   ├── App.tsx              # Main application component
+│   ├── main.tsx             # Application entry point
+│   └── index.css            # Global styles
 ├── public/                  # Static assets
-├── tailwind.config.js      # Tailwind CSS configuration
-├── vite.config.ts          # Vite build configuration
-└── package.json            # Dependencies and scripts
+├── package.json             # Project dependencies
+├── tailwind.config.js       # Tailwind CSS configuration
+├── vite.config.ts           # Vite build configuration
+├── tsconfig.json            # TypeScript configuration
+└── README.md                # This file
 ```
 
-## 🚀 Getting Started
+## Technology Stack
+
+### Frontend
+- **Runtime**: Node.js
+- **Framework**: React with TypeScript
+- **Build Tool**: Vite for fast development and optimized builds
+- **Styling**: Tailwind CSS with custom design system
+- **State Management**: React hooks with custom API hooks
+- **Charts**: Chart.js with React-Chartjs-2
+- **Icons**: Lucide React for consistent iconography
+
+### Dependencies
+- **Core**: React, React-DOM, React-Router-DOM
+- **Build & Dev**: Vite, TypeScript, ESLint
+- **Styling**: Tailwind CSS, PostCSS, Autoprefixer
+- **Charts**: ReChart
+- **Icons**: Lucide React
+- **HTTP Client**: Built-in fetch API with custom hooks
+
+### Code Quality Features
+- **TypeScript**: Full type safety and IntelliSense support
+- **ESLint**: Code quality and consistency enforcement
+- **Modular Architecture**: Clean component separation and reusability
+- **Custom Hooks**: Reusable logic for API calls
+- **Error Boundaries**: Graceful error handling and recovery
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+
+## Screenshots
+
+### Dashboard Overview
+<img width="1800" height="1042" alt="f-ss-01" src="https://github.com/user-attachments/assets/81fd9213-9132-48ab-b753-a9f9728f68fd" />
+
+### Filter Controls
+<img width="1798" height="927" alt="f-ss-03" src="https://github.com/user-attachments/assets/bf6a432d-0ffe-4faa-828d-1b9eef1bebc5" />
+
+### Performance Charts
+<img width="1800" height="1041" alt="f-ss-02" src="https://github.com/user-attachments/assets/d873a885-e9c9-446c-8040-1eff071bd541" />
+
+### AI Insights
+<img width="1800" height="903" alt="f-ss-04" src="https://github.com/user-attachments/assets/6a086f95-5e44-4c7b-9fd1-103a0b81b910" />
+
+## Installation and Setup
 
 ### Prerequisites
+- **Node.js**: Version 18+ (use [nvm](https://github.com/nvm-sh/nvm) for version management)
+- **Git**: For cloning the repository
+- **Package Manager**: npm or yarn
+- **Backend API**: Running Training Performance Dashboard backend
 
-- Node.js 18+ 
-- npm or yarn package manager
+### Quick Start
 
-### Installation
-
-1. **Clone the repository**
+1. **Clone the Repository**
    ```bash
    git clone <repository-url>
    cd training-performance-dashboard-frontend
    ```
 
-2. **Install dependencies**
+2. **Install Dependencies**
    ```bash
    npm install
-   # or
-   yarn install
    ```
 
-3. **Environment Setup**
+3. **Configure Environment Variables**
    ```bash
-   cp env.example .env.local
-   ```
+   # Copy the example environment file
+   cp env.example .env
    
-   Update `.env.local` with your configuration:
-   ```env
-   VITE_API_BASE_URL=http://localhost:3000/api
+   # Edit .env and configure your backend API URL
+   VITE_API_BASE_URL=http://localhost:8000/api/v1
    VITE_API_TIMEOUT=10000
    ```
 
-4. **Start Development Server**
+4. **Start the Development Server**
    ```bash
    npm run dev
-   # or
-   yarn dev
    ```
-   
-   The application will be available at `http://localhost:5173`
 
-### Build for Production
+5. **Access the Application**
+   - **Frontend**: http://localhost:3000
+   - **Dashboard**: http://localhost:3000/dashboard
 
-```bash
-npm run build
-# or
-yarn build
-```
+6. **Build for Production**
+   ```bash
+   npm run build
+   npm run preview
+   ```
 
-The built files will be in the `dist/` directory.
+## Features & Components
 
-## 🎯 Design Decisions
+### 🎯 Dashboard Overview
+The main dashboard provides a comprehensive view of training performance with:
+- **Performance Metrics**: Total sessions, pass rates, average scores, completion times
+- **Interactive Charts**: Performance trends, skills comparison, and pass rate analysis
+- **Department Breakdown**: Detailed performance analysis by department
+- **Top Skills**: Highlighting strongest performing skills across the organization
 
-### 1. Component Architecture
+### 🔍 Advanced Filtering System
+Smart filtering capabilities that enhance data analysis:
+- **Quick Presets**: Last 7 days, 30 days, 90 days, 12 months
+- **Custom Date Ranges**: Flexible start and end date selection
+- **Department Filtering**: Filter by specific departments or view all
+- **URL Synchronization**: Shareable links with filter state preservation
+- **Collapsible Interface**: Space-efficient design with expand/collapse functionality
 
-**Generic Reusable Components**: Created `LoadingSpinner` and `ErrorBoundary` as generic components that can be used across the application, promoting code reusability and consistency.
+### 📊 Interactive Data Visualization
+Rich charts and visualizations for better data understanding:
+- **Performance Trend Chart**: Line chart showing score trends over time
+- **Skills Comparison Chart**: Radar chart comparing skills across departments
+- **Pass Rate Chart**: Bar chart displaying pass/fail distribution by departments
+- **Responsive Design**: Charts adapt to different screen sizes
 
-**Separation of Concerns**: Each component has a single responsibility:
-- `Dashboard.tsx`: Main orchestration and data fetching
-- `FilterControls.tsx`: User input and filtering logic
-- Chart components: Data visualization only
-- Utility components: Generic functionality
+### 🤖 AI-Powered Natural Language Insights
+Intelligent analysis of training performance data:
+- **Natural Language Analysis**: Human-readable insights from training data
+- **Smart Filtering**: Insights based on current filter selections
+- **Summary Metrics**: Key performance indicators in an easy-to-understand format
+- **Professional Presentation**: Beautiful UI for displaying AI-generated insights
 
-### 2. State Management
+### 📱 Responsive Design
+Optimized for all devices and screen sizes:
+- **Mobile-First Approach**: Designed for mobile devices first
+- **Responsive Grid**: Adapts layout based on screen size
+  
+## API Integration
 
-**Local State with Hooks**: Used React's built-in hooks instead of external state management libraries for simplicity and performance:
-- `useState` for component-specific state
-- `useMemo` for expensive computations
-- `useCallback` for stable function references
-- `useEffect` for side effects and data fetching
+### Backend Requirements
+The frontend requires a running instance of the Training Performance Dashboard backend with these endpoints:
+- `GET /api/v1/insights` - Training performance data
+- `GET /api/v1/natural-language-insights` - AI-powered insights
 
-**URL State Synchronization**: Filters are synchronized with URL parameters, enabling:
-- Bookmarkable filtered views
-- Browser back/forward navigation
-- Shareable dashboard states
+### Data Flow
+1. **Filter Changes**: User updates filters through the UI
+2. **URL Update**: Filter state is synchronized with URL parameters
+3. **API Call**: Enhanced query hook fetches data from backend
+4. **Data Processing**: Raw data is transformed for visualization
+5. **UI Update**: Components re-render with new data and loading states
 
-### 3. Data Processing
+### Error Handling
+- **Network Errors**: Graceful fallbacks and retry mechanisms
+- **API Errors**: User-friendly error messages with retry options
+- **Loading States**: Clear feedback during data fetching
+- **Error Boundaries**: Component-level error isolation and recovery
 
-**Server-First Approach**: The application is designed to work with server-side data processing:
-- Minimal client-side data transformation
-- Efficient data structures from the server
-- Reduced bundle size and improved performance
-
-**Memoized Computations**: Heavy data processing is memoized to prevent unnecessary recalculations on re-renders.
-
-### 4. Error Handling
-
-**Graceful Degradation**: Comprehensive error handling with:
-- Custom `ApiError` class for structured error information
-- User-friendly error messages
-- Retry mechanisms for failed requests
-- Fallback UI states
-
-### 5. Performance Optimization
-
-**Code Splitting**: Removed unused functions and imports to reduce bundle size
-**Lazy Loading**: Components are loaded only when needed
-**Memoization**: Expensive operations are cached and only recalculated when dependencies change
-
-## 🔧 Development Guidelines
+## Development
 
 ### Code Style
+- **TypeScript**: Strict type checking and interfaces
+- **ESLint**: JavaScript/TypeScript linting for code quality
+- **Component Structure**: Functional components with hooks
+- **Naming Conventions**: Clear, descriptive component and function names
+- **Modular Design**: Reusable components and utility functions
 
-- **TypeScript**: Strict typing with proper interfaces and types
-- **ESLint**: Code quality enforcement with custom rules
-- **Prettier**: Consistent code formatting
-- **Component Naming**: PascalCase for components, camelCase for functions
-
-### Component Structure
-
-```typescript
-// Example component structure
-interface ComponentProps {
-  // Clear prop definitions
-}
-
-export const Component: React.FC<ComponentProps> = ({ prop1, prop2 }) => {
-  // State and hooks at the top
-  const [state, setState] = useState();
-  
-  // Memoized values
-  const memoizedValue = useMemo(() => {
-    // Expensive computation
-  }, [dependency]);
-  
-  // Event handlers
-  const handleEvent = useCallback(() => {
-    // Event logic
-  }, [dependency]);
-  
-  // Effects
-  useEffect(() => {
-    // Side effects
-  }, [dependency]);
-  
-  // Render logic
-  return (
-    // JSX with semantic HTML
-  );
-};
-```
-
-### API Integration
-
-**Consistent Error Handling**: All API calls use the same error handling pattern:
-```typescript
-try {
-  const data = await apiCall();
-  // Handle success
-} catch (error) {
-  const errorMessage = formatApiError(error);
-  // Handle error consistently
+### Project Scripts
+```json
+{
+  "dev": "vite",                    // Development server
+  "build": "tsc && vite build",     // Production build
+  "preview": "vite preview",        // Preview production build
+  "lint": "eslint . --ext ts,tsx"   // Code linting
 }
 ```
 
-**Request Interceptors**: Centralized request/response handling for:
-- Authentication tokens
-- Request/response logging
-- Error transformation
-- Status code handling
+## Component Architecture
 
-### Testing Strategy
+### Core Components
 
-**Component Testing**: Test individual components in isolation
-**Integration Testing**: Test component interactions and data flow
-**Error Scenarios**: Test error boundaries and fallback states
-**Performance Testing**: Monitor bundle size and render performance
+#### Dashboard.tsx
+Main dashboard component that orchestrates all other components:
+- **Data Fetching**: Coordinates API calls and data flow
+- **Filter Management**: Manages filter state and URL synchronization
+- **Layout Management**: Responsive grid layout for all dashboard sections
+- **Error Handling**: Top-level error boundaries and loading states
 
-## 📊 Data Flow
+#### FilterControls.tsx
+Advanced filtering system with professional design:
+- **Quick Presets**: One-click date range selection
+- **Custom Ranges**: Flexible date input with validation
+- **Department Filtering**: Dropdown selection for departments
+- **Collapsible Interface**: Space-efficient expand/collapse functionality
+- **URL Sync**: Automatic URL parameter management
 
-```
-User Interaction → Filter Change → URL Update → API Call → Data Processing → UI Update
-     ↓
-Component State → Memoized Computations → Chart Rendering → User Feedback
-```
+#### Chart Components
+Specialized chart components for data visualization:
+- **PerformanceTrendChart**: Line chart for score trends over time
+- **SkillsComparisonChart**: Radar chart for department skill comparison
+- **PassRateChart**: Bar chart for pass/fail distribution
+- **Responsive Design**: Charts adapt to container size
 
-## 🎨 UI/UX Principles
+#### NaturalLanguageInsights.tsx
+AI-powered insights component:
+- **Smart Filtering**: Automatically applies current filters
+- **Loading States**: Professional loading animations
+- **Error Handling**: Graceful error recovery with retry options
+- **Rich Display**: Beautiful presentation of AI-generated insights
 
-### Design System
+### Utility Functions
 
-**Consistent Spacing**: Using Tailwind's spacing scale (4, 8, 12, 16, 20, 24, 32, 48, 64)
-**Color Palette**: Semantic colors for different states (success, error, warning, info)
-**Typography**: Clear hierarchy with consistent font sizes and weights
-**Responsive Grid**: Mobile-first approach with progressive enhancement
+#### useApi.ts
+Enhanced API query hook with advanced features:
+- **Automatic Retries**: Configurable retry logic for failed requests
+- **Cache Management**: Intelligent caching and invalidation
 
-### Accessibility
+#### dataProcessing.ts
+Data transformation utilities:
+- **Chart Data**: Converts raw API data to chart-ready formats
+- **Filtering Logic**: Efficient data filtering algorithms
+- **Date Processing**: Date range calculations and formatting
 
-**Semantic HTML**: Proper heading hierarchy and landmark elements
-**Keyboard Navigation**: All interactive elements are keyboard accessible
-**Screen Reader Support**: Proper ARIA labels and descriptions
-**Color Contrast**: WCAG AA compliant color combinations
+## Deployment
 
-## 🚀 Deployment
-
-### Build Optimization
-
+### Build Process
 ```bash
-# Analyze bundle size
-npm run build --analyze
+# Install dependencies
+npm install
+
+# Build for production
+npm run build
 
 # Preview production build
 npm run preview
 ```
 
-### Environment Variables
-
-- **Development**: `.env.local` for local development
-- **Production**: Set environment variables in deployment platform
-- **Security**: Never commit sensitive data to version control
-
-## 🤝 Contributing
-
-### Commit Message Convention
-
-Use conventional commit messages for better project history:
-
+### Environment Configuration
 ```bash
-feat: add new chart component
-fix: resolve loading state issue
-docs: update README with setup instructions
-refactor: clean up unused API functions
-style: improve button hover states
-test: add component test coverage
+# Production environment variables
+VITE_API_BASE_URL=https://your-api-domain.com/api/v1
+VITE_API_TIMEOUT=10000
+NODE_ENV=production
 ```
 
-### Pull Request Process
+### Deployment Options
+- **Static Hosting**: Vercel, or GitHub Pages
+- **CDN**: AWS CloudFront, or similar
+- **Container**: Docker containerization for container orchestration
+- **Server**: Traditional web server deployment
 
-1. Create a feature branch from `main`
-2. Make changes with clear commit messages
-3. Ensure all tests pass
-4. Update documentation if needed
-5. Submit PR with detailed description
+## Contributing
 
-## 📝 License
+We welcome contributions to improve the Training Performance Dashboard Frontend!
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### Contribution Guidelines
+1. **Fork the repository**
+2. **Create a feature branch**:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. **Make your changes** with clear commit messages
+4. **Ensure TypeScript compilation** passes
+5. **Test responsive design** across different screen sizes
+6. **Update documentation** as needed
+7. **Submit a pull request**
+
+### Commit Message Format
+```
+feat: add collapsible filter interface
+
+- Implemented expand/collapse functionality for filters
+- Added smooth animations and transitions
+- Improved space efficiency on mobile devices
+- Updated component documentation
+```
+
+### Code Review Checklist
+- [ ] TypeScript compilation passes
+- [ ] ESLint rules are satisfied
+- [ ] Responsive design works across screen sizes
+- [ ] Components are properly typed
+- [ ] Error handling is implemented
+- [ ] Loading states are provided
+- [ ] Accessibility features are included
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+## Support
+
+For questions, issues, or contributions:
+- **Issues**: Create an issue in the repository
+- **Discussions**: Use GitHub Discussions for questions
+- **Contributions**: Submit pull requests for improvements
 
 ---
 
-**Built with ❤️ using modern web technologies**
+**Built with ❤️ for better training insights visualization and user experience.**
